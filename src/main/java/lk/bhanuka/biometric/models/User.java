@@ -1,4 +1,4 @@
-package lk.bhanuka.models;
+package lk.bhanuka.biometric.models;
 // Generated Mar 1, 2017 4:11:21 PM by Hibernate Tools 4.3.1
 
 

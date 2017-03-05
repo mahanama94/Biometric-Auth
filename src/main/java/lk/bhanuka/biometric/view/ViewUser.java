@@ -5,7 +5,7 @@
  */
 package lk.bhanuka.biometric.view;
 
-import lk.bhanuka.models.User;
+import lk.bhanuka.biometric.models.User;
 
 /**
  *

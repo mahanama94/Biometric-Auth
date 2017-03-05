@@ -51,4 +51,13 @@ public class DatabaseService {
         }
         return criteria.list();
     }
+    
+    public static List search(Class type, Map restrictions, Float margin){
+        Session session = DatabaseService.getSession();
+        Criteria criteria = session.createCriteria(type);
+        for(Object o :restrictions.keySet()){
+            criteria.add(Restrictions.between((String) o , (Float)restrictions.get(o) - (Float)restrictions.get(o)* margin, (Float)restrictions.get(o) + (Float)restrictions.get(o)* margin));
+        }
+        return criteria.list();
+    }
 }

@@ -5,9 +5,11 @@
  */
 package lk.bhanuka.biometric.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import lk.bhanuka.biometric.DAO.UserDAO;
-import lk.bhanuka.models.User;
+import lk.bhanuka.biometric.models.AuthenticationRequest;
+import lk.bhanuka.biometric.models.User;
 
 /**
  *
@@ -15,13 +17,18 @@ import lk.bhanuka.models.User;
  */
 public class AuthenticationController {
     
-    public static User checkAuth(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight){
-        return UserDAO.getUser(indexFinger, middleFinger, ringFinger, pinkyFinger, palmWidth, palmHeight);        
+    public static User checkAuth(AuthenticationRequest request){
+        return UserDAO.getUser(request.indexFinger, request.middleFinger, request.ringFinger, request.pinkyFinger, request.palmWidth, request.palmHeight);        
     }
     
     public static void addUser(String name, String indexNumber, Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight){
         User newUser = new User(indexNumber, name,  middleFinger, indexFinger, pinkyFinger, ringFinger, palmWidth, palmHeight);
         UserDAO.saveUser(newUser);
+    }
+
+    public static List<User> checkAuthentication(){
+        
+        return new ArrayList<User>();
     }
     
     public static List<User> getUsers(){

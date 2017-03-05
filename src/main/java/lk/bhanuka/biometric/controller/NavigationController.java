@@ -6,11 +6,12 @@
 package lk.bhanuka.biometric.controller;
 
 
+import java.util.List;
 import lk.bhanuka.biometric.view.AddUser;
 import lk.bhanuka.biometric.view.Main;
 import lk.bhanuka.biometric.view.ViewUser;
 import lk.bhanuka.biometric.view.ViewUsers;
-import lk.bhanuka.models.User;
+import lk.bhanuka.biometric.models.User;
 
 /**
  *
@@ -32,8 +33,8 @@ public class NavigationController {
         page.setVisible(true);
     }
     
-    public static void openViewUsersPage(){
-        ViewUsers page = new ViewUsers();
+    public static void openViewUsersPage(List users){
+        ViewUsers page = new ViewUsers(users);
         page.setVisible(true);
     }
     

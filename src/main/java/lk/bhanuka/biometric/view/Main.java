@@ -33,12 +33,24 @@ package lk.bhanuka.biometric.view;
 import javax.swing.JOptionPane;
 import lk.bhanuka.biometric.controller.AuthenticationController;
 import lk.bhanuka.biometric.controller.NavigationController;
+import lk.bhanuka.biometric.models.AuthenticationRequest;
 
 public class Main extends javax.swing.JFrame {
     
     /** Creates new form Antenna */
     public Main() {
         initComponents();
+    }
+    
+    private AuthenticationRequest generateRequest(){
+        return new AuthenticationRequest(
+                Float.parseFloat(this.txtIndexFinger.getText()),
+                Float.parseFloat(this.txtMiddleFinger.getText()), 
+                Float.parseFloat(this.txtRingFinger.getText()), 
+                Float.parseFloat(this.txtPinkyFinger.getText()), 
+                Float.parseFloat(this.txtPalmWidth.getText()),
+                Float.parseFloat(this.txtPalmHeight.getText())
+        );
     }
     
     /** This method is called from within the constructor to
@@ -290,15 +302,8 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
 
-        Float indexFinger = Float.parseFloat(this.txtIndexFinger.getText());
-        Float middleFinger = Float.parseFloat(this.txtMiddleFinger.getText());
-        Float ringFinger = Float.parseFloat(this.txtRingFinger.getText());
-        Float pinkyFinger = Float.parseFloat(this.txtPinkyFinger.getText());
-        Float palmWidth = Float.parseFloat(this.txtPalmWidth.getText());
-        Float palmHeight = Float.parseFloat(this.txtPalmHeight.getText());
-        
-        if(AuthenticationController.checkAuth(indexFinger, middleFinger, ringFinger, pinkyFinger, palmWidth, palmHeight) != null){
-            NavigationController.openViewUserPage(AuthenticationController.checkAuth(indexFinger, middleFinger, ringFinger, pinkyFinger, palmWidth, palmHeight));        
+        if(AuthenticationController.checkAuth(this.generateRequest()) != null){
+            NavigationController.openViewUserPage(AuthenticationController.checkAuth(this.generateRequest()));        
         }
         else{
             JOptionPane.showMessageDialog(null, "User cannot be Found");
@@ -314,7 +319,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddUserActionPerformed
 
     private void btnViewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewUsersActionPerformed
-        NavigationController.openViewUsersPage();
+        NavigationController.openViewUsersPage(AuthenticationController.getUsers());
     }//GEN-LAST:event_btnViewUsersActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed

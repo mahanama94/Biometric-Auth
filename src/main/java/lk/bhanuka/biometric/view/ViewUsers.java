@@ -5,10 +5,11 @@
  */
 package lk.bhanuka.biometric.view;
 
+import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import lk.bhanuka.biometric.controller.AuthenticationController;
-import lk.bhanuka.models.User;
+import lk.bhanuka.biometric.models.User;
 
 /**
  *
@@ -16,14 +17,18 @@ import lk.bhanuka.models.User;
  */
 public class ViewUsers extends javax.swing.JFrame {
 
+    private List<User> users;
     /**
      * Creates new form ViewUsers
      */
-    public ViewUsers() {
+    public ViewUsers(List Users) {
         initComponents();
+        this.users = Users; 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.initializeTable();
     }
+    
+    
 
     private void initializeTable(){
         Vector<String> tableHeaders = new Vector();
@@ -38,7 +43,7 @@ public class ViewUsers extends javax.swing.JFrame {
         tableHeaders.add("Palm width");
         tableHeaders.add("Palm height");
         
-        for(User user: AuthenticationController.getUsers()){
+        for(User user: this.users){
             Vector<Object> oneRow = new Vector<Object>();
             oneRow.add(user.getName());
             oneRow.add(user.getIndexNumber());
