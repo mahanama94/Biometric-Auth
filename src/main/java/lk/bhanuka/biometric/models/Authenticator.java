@@ -26,9 +26,10 @@ public class Authenticator {
         HashMap<User, AuthenticationScore> results = new HashMap();
         
         for(User user: users){
-            System.out.println(request.threshold);
-            if(Authenticator.getAuthenticationScore(request, user).getScore() < request.threshold){
-                results.put(user, Authenticator.getAuthenticationScore(request, user));
+
+            AuthenticationScore score = Authenticator.getAuthenticationScore(request, user);
+            if(score.getScore() < request.threshold){
+                results.put(user, score);
             }
         }
         

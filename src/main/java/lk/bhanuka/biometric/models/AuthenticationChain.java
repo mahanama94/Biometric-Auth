@@ -17,6 +17,9 @@ public class AuthenticationChain {
     private List<AuthUnit> chain;
     
     public AuthenticationChain(){
+        
+        // TODO - Move the settings to config and configure from the config
+        
         this.chain = new ArrayList();
         
         this.chain.add(new IndexFingerAuth());

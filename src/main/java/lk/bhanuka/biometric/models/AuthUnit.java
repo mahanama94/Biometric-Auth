@@ -24,6 +24,10 @@ public abstract class AuthUnit {
         }
     }
     
+    protected void discontinue(){
+        this.next = null;
+    }
+    
     abstract protected void authenticate(User user, AuthenticationRequest request, AuthenticationScore score);
     
 }

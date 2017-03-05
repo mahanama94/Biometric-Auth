@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 1, 2017 4:11:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="biometric" name="lk.bhanuka.biometric.models.User" optimistic-lock="version" table="user">
+    <id name="indexNumber" type="string">
+      <column length="7" name="index_number"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="name" type="string">
+      <column length="40" name="name"/>
+    </property>
+    <property name="middleFinger" type="java.lang.Float">
+      <column name="middle_finger" precision="12" scale="0"/>
+    </property>
+    <property name="indexFinger" type="java.lang.Float">
+      <column name="index_finger" precision="12" scale="0"/>
+    </property>
+    <property name="pinkyFinger" type="java.lang.Float">
+      <column name="pinky_finger" precision="12" scale="0"/>
+    </property>
+    <property name="ringFinger" type="java.lang.Float">
+      <column name="ring_finger" precision="12" scale="0"/>
+    </property>
+    <property name="palmWidth" type="java.lang.Float">
+      <column name="palm_width" precision="12" scale="0"/>
+    </property>
+    <property name="palmHeight" type="java.lang.Float">
+      <column name="palm_height" precision="12" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

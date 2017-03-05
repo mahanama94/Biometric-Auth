@@ -13,7 +13,6 @@ public class MiddleFingerAuth extends AuthUnit{
 
     @Override
     protected void authenticate(User user, AuthenticationRequest request, AuthenticationScore score) {
-        System.out.println("Middle finger Auth");
         score.middleFinger = Math.abs((user.getMiddleFinger() - request.middleFinger)/request.middleFinger);
     }
     

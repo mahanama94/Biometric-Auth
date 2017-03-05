@@ -13,7 +13,6 @@ public class IndexFingerAuth extends AuthUnit{
 
     @Override
     protected void authenticate(User user, AuthenticationRequest request, AuthenticationScore score) {
-        System.out.println("Index finger auth");
         score.indexFinger = Math.abs((user.getIndexFinger() - request.indexFinger)/request.indexFinger);
     }
     

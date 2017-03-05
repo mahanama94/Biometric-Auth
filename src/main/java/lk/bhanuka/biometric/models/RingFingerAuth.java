@@ -13,7 +13,6 @@ public class RingFingerAuth extends AuthUnit{
 
     @Override
     protected void authenticate(User user, AuthenticationRequest request, AuthenticationScore score) {
-        System.out.println("Ring Finger Auth");
         score.ringFinger = Math.abs((user.getRingFinger()- request.ringFinger)/request.ringFinger);
     }
     
