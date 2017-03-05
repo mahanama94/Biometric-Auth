@@ -30,10 +30,11 @@
 
 package lk.bhanuka.biometric.view;
 
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
 import lk.bhanuka.biometric.controller.AuthenticationController;
 import lk.bhanuka.biometric.controller.NavigationController;
 import lk.bhanuka.biometric.models.AuthenticationRequest;
+import lk.bhanuka.biometric.models.User;
 
 public class Main extends javax.swing.JFrame {
     
@@ -302,11 +303,15 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
 
-        if(AuthenticationController.checkAuth(this.generateRequest()) != null){
-            NavigationController.openViewUserPage(AuthenticationController.checkAuth(this.generateRequest()));        
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "User cannot be Found");
+//        if(AuthenticationController.checkAuth(this.generateRequest()) != null){
+//            NavigationController.openViewUserPage(AuthenticationController.checkAuth(this.generateRequest()));        
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "User cannot be Found");
+//        }
+
+        if(AuthenticationController.checkAuthentication(this.generateRequest()) != null){
+            NavigationController.openViewUsersPage(new ArrayList<User>(AuthenticationController.checkAuthentication(this.generateRequest()).keySet()));
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 

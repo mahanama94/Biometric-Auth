@@ -5,10 +5,12 @@
  */
 package lk.bhanuka.biometric.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import lk.bhanuka.biometric.DAO.UserDAO;
 import lk.bhanuka.biometric.models.AuthenticationRequest;
+import lk.bhanuka.biometric.models.AuthenticationScore;
+import lk.bhanuka.biometric.models.Authenticator;
 import lk.bhanuka.biometric.models.User;
 
 /**
@@ -26,9 +28,8 @@ public class AuthenticationController {
         UserDAO.saveUser(newUser);
     }
 
-    public static List<User> checkAuthentication(){
-        
-        return new ArrayList<User>();
+    public static Map<User, AuthenticationScore> checkAuthentication(AuthenticationRequest authenticationRequest){
+        return Authenticator.getUsers(authenticationRequest);
     }
     
     public static List<User> getUsers(){

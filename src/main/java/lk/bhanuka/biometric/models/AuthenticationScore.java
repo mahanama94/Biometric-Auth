@@ -9,7 +9,7 @@ package lk.bhanuka.biometric.models;
  *
  * @author bhanuka
  */
-public class AuthenticationRequest {
+public class AuthenticationScore {
     
     public Float indexFinger;
     public Float middleFinger;
@@ -18,10 +18,14 @@ public class AuthenticationRequest {
     public Float palmWidth;
     public Float palmHeight;
     
-    public Float margin = 0.1f;
-    public Float threshold = 1.2f;
+    private Float score = null;
+    
 
-    public AuthenticationRequest(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight){
+    public AuthenticationScore(){
+        
+    }
+    
+    public AuthenticationScore(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight){
         
         this.indexFinger = indexFinger;
         this.middleFinger = middleFinger;
@@ -29,7 +33,17 @@ public class AuthenticationRequest {
         this.pinkyFinger = pinkyFinger;
         this.palmWidth = palmWidth;
         this.palmHeight = palmHeight;
-        
+    }
+    
+    public Float getScore(){
+        //if(score != null){
+            return (indexFinger + middleFinger + ringFinger + pinkyFinger)/4.0f;
+        //}
+        //return 1.0f;
+    }
+    
+    public void setScore(Float score){
+        this.score =score;
     }
     
     
