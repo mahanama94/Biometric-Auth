@@ -14,6 +14,8 @@ public class MiddleFingerAuth extends AuthUnit{
     @Override
     protected void authenticate(User user, AuthenticationRequest request, AuthenticationScore score) {
         score.middleFinger = Math.abs((user.getMiddleFinger() - request.middleFinger)/request.middleFinger);
+        
+        score.middleWidth = Math.abs((user.getMiddleWidth() - request.middleWidth)/ request.middleWidth);
     }
     
 }

@@ -18,6 +18,12 @@ public class User  implements java.io.Serializable {
      private Float thumb;
      private Float palmWidth;
      private Float palmHeight;
+     
+     private Float indexWidth;
+     private Float middleWidth;
+     private Float ringWidth;
+     private Float pinkyWidth;
+     private Float thumbWidth;
 
     public User() {
     }
@@ -38,7 +44,13 @@ public class User  implements java.io.Serializable {
        this.thumb = 0.0f;
     }
     
-    public User(String indexNumber, String name, Float middleFinger, Float indexFinger, Float pinkyFinger, Float ringFinger,Float thumb, Float palmWidth, Float palmHeight) {
+    public User(String indexNumber, 
+            String name, 
+            Float middleFinger, 
+            Float indexFinger, 
+            Float pinkyFinger, 
+            Float ringFinger,
+            Float thumb, Float palmWidth, Float palmHeight, Float indexWidth, Float middleWidth, Float ringWidth, Float pinkyWidth, Float thumbWidth) {
        this.indexNumber = indexNumber;
        this.name = name;
        this.middleFinger = middleFinger;
@@ -48,6 +60,12 @@ public class User  implements java.io.Serializable {
        this.palmWidth = palmWidth;
        this.palmHeight = palmHeight;
        this.thumb = thumb;
+       
+       this.indexWidth = indexWidth;
+       this.middleWidth = middleWidth;
+       this.ringWidth = ringWidth;
+       this.pinkyWidth = pinkyWidth;
+       this.thumbWidth = thumbWidth;
     }
    
     public String getIndexNumber() {
@@ -114,9 +132,45 @@ public class User  implements java.io.Serializable {
         this.palmHeight = palmHeight;
     }
 
+    public void setIndexWidth(Float indexWidth){
+        this.indexWidth = indexWidth;
+    }
+    
+    public Float getIndexWidth(){
+        return this.indexWidth;
+    }
 
-
-
+    public void setMiddleWidth(Float indexWidth){
+        this.middleWidth = indexWidth;
+    }
+    
+    public Float getMiddleWidth(){
+        return this.middleWidth;
+    }
+    
+        public void setRingWidth(Float indexWidth){
+        this.ringWidth = indexWidth;
+    }
+    
+    public Float getRingWidth(){
+        return this.ringWidth;
+    }
+    
+    public void setThumbWidth(Float indexWidth){
+        this.thumbWidth = indexWidth;
+    }
+    
+    public Float getThumbWidth(){
+        return this.thumbWidth;
+    }
+    
+    public void setPinkyWidth(Float indexWidth){
+        this.pinkyWidth = indexWidth;
+    }
+    
+    public Float getPinkyWidth(){
+        return this.pinkyWidth;
+    }
 }
 
 

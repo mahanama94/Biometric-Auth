@@ -14,6 +14,8 @@ public class RingFingerAuth extends AuthUnit{
     @Override
     protected void authenticate(User user, AuthenticationRequest request, AuthenticationScore score) {
         score.ringFinger = Math.abs((user.getRingFinger()- request.ringFinger)/request.ringFinger);
+        
+        score.ringWidth = Math.abs((user.getRingWidth() - request.ringWidth)/ request.ringWidth);
     }
     
 }

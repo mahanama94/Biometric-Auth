@@ -14,6 +14,8 @@ public class PinkyFingerAuth extends AuthUnit{
     @Override
     protected void authenticate(User user, AuthenticationRequest request, AuthenticationScore score) {
         score.pinkyFinger = Math.abs((user.getPinkyFinger()- request.pinkyFinger)/request.pinkyFinger);
+        
+        score.pinkyWidth = Math.abs((user.getPinkyWidth() - request.pinkyWidth)/ request.pinkyWidth);
     }
     
 }

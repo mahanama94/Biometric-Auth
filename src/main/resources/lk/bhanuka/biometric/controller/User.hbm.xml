@@ -2,13 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Mar 1, 2017 4:11:22 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="biometric" name="lk.bhanuka.biometric.models.User" optimistic-lock="version" table="user">
+  <class catalog="biometric" name="lk.bhanuka.biometric.models.User" optimistic-lock="version" table="users">
     <id name="indexNumber" type="string">
       <column length="7" name="index_number"/>
       <generator class="assigned"/>
     </id>
     <property name="name" type="string">
-      <column length="40" name="name"/>
+      <column length="40" name="user_name"/>
     </property>
     <property name="middleFinger" type="java.lang.Float">
       <column name="middle_finger" precision="12" scale="0"/>
@@ -30,6 +30,21 @@
     </property>
     <property name="palmHeight" type="java.lang.Float">
       <column name="palm_height" precision="12" scale="0"/>
+    </property>
+    <property name="indexWidth" type="java.lang.Float">
+      <column name="index_width" precision="12" scale="0"/>
+    </property>
+    <property name="middleWidth" type="java.lang.Float">
+      <column name="middle_width" precision="12" scale="0"/>
+    </property>
+    <property name="ringWidth" type="java.lang.Float">
+      <column name="ring_width" precision="12" scale="0"/>
+    </property>
+    <property name="pinkyWidth" type="java.lang.Float">
+      <column name="pinky_width" precision="12" scale="0"/>
+    </property>
+    <property name="thumbWidth" type="java.lang.Float">
+      <column name="thumb_width" precision="12" scale="0"/>
     </property>
 
   </class>

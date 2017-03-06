@@ -9,7 +9,10 @@ package lk.bhanuka.biometric.models;
  *
  * @author bhanuka
  */
-public class AuthenticationRequest {
+public class AddUserRequest {
+    
+    public String indexNumber;
+    public String name;
     
     public Float indexFinger;
     public Float middleFinger;
@@ -25,20 +28,5 @@ public class AuthenticationRequest {
     public Float pinkyWidth;
     public Float thumbWidth;
     
-    public Float margin = 0.1f;
-    public Float threshold = 1.2f;
-
-    public AuthenticationRequest(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float thumb, Float palmWidth, Float palmHeight){
-        
-        this.indexFinger = indexFinger;
-        this.middleFinger = middleFinger;
-        this.ringFinger = ringFinger;
-        this.pinkyFinger = pinkyFinger;
-        this.thumb = thumb;
-        this.palmWidth = palmWidth;
-        this.palmHeight = palmHeight;
-        
-    }
-    
-    
+    public AddUserRequest(){}
 }

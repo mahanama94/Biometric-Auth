@@ -19,33 +19,19 @@ public class AuthenticationScore {
     public Float palmWidth;
     public Float palmHeight;
     
-    private Float score = null;
+    
+    public Float indexWidth = 0.0f;
+    public Float middleWidth = 0.0f;
+    public Float ringWidth = 0.0f;
+    public Float pinkyWidth = 0.0f;
+    public Float thumbWidth = 0.0f;
     
 
-    public AuthenticationScore(){
-        
-    }
-    
-    public AuthenticationScore(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight){
-        
-        this.indexFinger = indexFinger;
-        this.middleFinger = middleFinger;
-        this.ringFinger = ringFinger;
-        this.pinkyFinger = pinkyFinger;
-        this.palmWidth = palmWidth;
-        this.palmHeight = palmHeight;
-    }
+    public AuthenticationScore(){}
     
     public Float getScore(){
-        //if(score != null){
-            return (indexFinger + middleFinger + ringFinger + pinkyFinger + palmWidth + palmHeight + thumb);
-        //}
-        //return 1.0f;
+        return (indexFinger + middleFinger + ringFinger + pinkyFinger + palmWidth + palmHeight + thumb + indexWidth + middleWidth + ringWidth + pinkyWidth + thumbWidth);
     }
-    
-    public void setScore(Float score){
-        this.score =score;
-    }
-    
+        
     
 }

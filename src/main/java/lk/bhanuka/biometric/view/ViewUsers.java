@@ -5,12 +5,10 @@
  */
 package lk.bhanuka.biometric.view;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
-import lk.bhanuka.biometric.controller.AuthenticationController;
 import lk.bhanuka.biometric.models.AuthenticationScore;
 import lk.bhanuka.biometric.models.User;
 
@@ -49,6 +47,13 @@ public class ViewUsers extends javax.swing.JFrame {
         tableHeaders.add("Thumb");
         tableHeaders.add("Palm width");
         tableHeaders.add("Palm height");
+        
+        tableHeaders.add("Index Width");
+        tableHeaders.add("Middle Width");
+        tableHeaders.add("Ring Width");
+        tableHeaders.add("Pinky Width");
+        tableHeaders.add("Thumb Width");
+        
         tableHeaders.add("Total Score");
         
         for(User user: data.keySet()){
@@ -60,9 +65,16 @@ public class ViewUsers extends javax.swing.JFrame {
             oneRow.add(1-score.middleFinger);
             oneRow.add(1-score.ringFinger);
             oneRow.add(1-score.pinkyFinger);
-            oneRow.add(score.thumb);
+            oneRow.add(1 -score.thumb);
             oneRow.add(1-score.palmWidth);
             oneRow.add(1-score.palmHeight);
+            
+            oneRow.add(1 - score.indexWidth);
+            oneRow.add(1 - score.middleWidth);
+            oneRow.add(1 - score.ringWidth);
+            oneRow.add(1 - score.pinkyWidth);
+            oneRow.add(1 - score.thumbWidth);
+            
             oneRow.add(6 - score.getScore());
             tableData.add(oneRow);
         }
@@ -85,6 +97,12 @@ public class ViewUsers extends javax.swing.JFrame {
         tableHeaders.add("Palm width");
         tableHeaders.add("Palm height");
         
+        tableHeaders.add("Index Width");
+        tableHeaders.add("Middle Width");
+        tableHeaders.add("Ring Width");
+        tableHeaders.add("Pinky Width");
+        tableHeaders.add("Thumb Width");
+        
         for(User user: users){
             Vector<Object> oneRow = new Vector<Object>();
             oneRow.add(user.getName());
@@ -96,6 +114,13 @@ public class ViewUsers extends javax.swing.JFrame {
             oneRow.add(user.getThumb());
             oneRow.add(user.getPalmWidth());
             oneRow.add(user.getPalmHeight());
+            
+            oneRow.add(user.getIndexWidth());
+            oneRow.add(user.getMiddleWidth());
+            oneRow.add(user.getRingWidth());
+            oneRow.add(user.getPinkyWidth());
+            oneRow.add(user.getThumbWidth());
+            
             tableData.add(oneRow);
         }
         
@@ -137,7 +162,7 @@ public class ViewUsers extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 977, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(232, 232, 232)
