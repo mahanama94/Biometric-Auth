@@ -15,18 +15,20 @@ public class AuthenticationRequest {
     public Float middleFinger;
     public  Float ringFinger;
     public Float pinkyFinger;
+    public Float thumb;
     public Float palmWidth;
     public Float palmHeight;
     
     public Float margin = 0.1f;
     public Float threshold = 1.2f;
 
-    public AuthenticationRequest(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight){
+    public AuthenticationRequest(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float thumb, Float palmWidth, Float palmHeight){
         
         this.indexFinger = indexFinger;
         this.middleFinger = middleFinger;
         this.ringFinger = ringFinger;
         this.pinkyFinger = pinkyFinger;
+        this.thumb = thumb;
         this.palmWidth = palmWidth;
         this.palmHeight = palmHeight;
         

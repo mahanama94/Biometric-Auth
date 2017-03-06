@@ -15,6 +15,7 @@ public class User  implements java.io.Serializable {
      private Float indexFinger;
      private Float pinkyFinger;
      private Float ringFinger;
+     private Float thumb;
      private Float palmWidth;
      private Float palmHeight;
 
@@ -34,6 +35,19 @@ public class User  implements java.io.Serializable {
        this.ringFinger = ringFinger;
        this.palmWidth = palmWidth;
        this.palmHeight = palmHeight;
+       this.thumb = 0.0f;
+    }
+    
+    public User(String indexNumber, String name, Float middleFinger, Float indexFinger, Float pinkyFinger, Float ringFinger,Float thumb, Float palmWidth, Float palmHeight) {
+       this.indexNumber = indexNumber;
+       this.name = name;
+       this.middleFinger = middleFinger;
+       this.indexFinger = indexFinger;
+       this.pinkyFinger = pinkyFinger;
+       this.ringFinger = ringFinger;
+       this.palmWidth = palmWidth;
+       this.palmHeight = palmHeight;
+       this.thumb = thumb;
     }
    
     public String getIndexNumber() {
@@ -73,6 +87,13 @@ public class User  implements java.io.Serializable {
     }
     public Float getRingFinger() {
         return this.ringFinger;
+    }
+    
+    public void setThumb(Float thumb){
+        this.thumb = thumb;
+    }
+    public Float getThumb(){
+        return this.thumb;
     }
     
     public void setRingFinger(Float ringFinger) {

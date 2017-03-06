@@ -22,11 +22,15 @@
     <property name="ringFinger" type="java.lang.Float">
       <column name="ring_finger" precision="12" scale="0"/>
     </property>
+    <property name="thumb" type="java.lang.Float">
+      <column name="thumb" precision="12" scale="0"/>
+    </property>
     <property name="palmWidth" type="java.lang.Float">
       <column name="palm_width" precision="12" scale="0"/>
     </property>
     <property name="palmHeight" type="java.lang.Float">
       <column name="palm_height" precision="12" scale="0"/>
     </property>
+
   </class>
 </hibernate-mapping>

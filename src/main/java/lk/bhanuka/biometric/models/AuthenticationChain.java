@@ -26,6 +26,9 @@ public class AuthenticationChain {
         this.chain.add(new MiddleFingerAuth());
         this.chain.add(new RingFingerAuth());
         this.chain.add(new PinkyFingerAuth());
+        this.chain.add(new PalmHeightAuth());
+        this.chain.add(new PalmWidthAuth());
+        this.chain.add(new ThumbAuth());
         
         for(int i=0; i < this.chain.size() -1 ; i++){
             this.chain.get(i).setNextUnit(this.chain.get(i + 1));

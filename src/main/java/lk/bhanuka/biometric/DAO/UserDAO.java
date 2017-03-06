@@ -34,20 +34,6 @@ public class UserDAO {
         DatabaseService.save(user);
     }
     
-    public static User getUser(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight){
-        HashMap restrictions = new HashMap();
-        restrictions.put("indexFinger", indexFinger);
-        restrictions.put("middleFinger", middleFinger);
-        restrictions.put("ringFinger",ringFinger);
-        restrictions.put("pinkyFinger", pinkyFinger);
-        restrictions.put("palmWidth", palmWidth);
-        restrictions.put("palmHeight", palmHeight);
-        List users = DatabaseService.search(User.class, restrictions);
-        if(users.isEmpty()){
-            return null;
-        }
-        return (User)users.get(0);
-    }
     
     public static List<User> getUsers(Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight, Float margin){
         HashMap restrictions = new HashMap();

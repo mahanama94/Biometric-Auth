@@ -19,11 +19,8 @@ import lk.bhanuka.biometric.models.User;
  */
 public class AuthenticationController {
     
-    public static User checkAuth(AuthenticationRequest request){
-        return UserDAO.getUser(request.indexFinger, request.middleFinger, request.ringFinger, request.pinkyFinger, request.palmWidth, request.palmHeight);        
-    }
     
-    public static void addUser(String name, String indexNumber, Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float palmWidth, Float palmHeight){
+    public static void addUser(String name, String indexNumber, Float indexFinger, Float middleFinger, Float ringFinger, Float pinkyFinger, Float thumb, Float palmWidth, Float palmHeight){
         User newUser = new User(indexNumber, name,  middleFinger, indexFinger, pinkyFinger, ringFinger, palmWidth, palmHeight);
         UserDAO.saveUser(newUser);
     }

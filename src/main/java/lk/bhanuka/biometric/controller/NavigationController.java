@@ -7,6 +7,8 @@ package lk.bhanuka.biometric.controller;
 
 
 import java.util.List;
+import java.util.Map;
+import lk.bhanuka.biometric.models.AuthenticationScore;
 import lk.bhanuka.biometric.view.AddUser;
 import lk.bhanuka.biometric.view.Main;
 import lk.bhanuka.biometric.view.ViewUser;
@@ -41,5 +43,10 @@ public class NavigationController {
     public static void openViewUserPage(User user){
         ViewUser userPage = new ViewUser(user);
         userPage.setVisible(true);
+    }
+    
+    public static void openViewUsersPage(Map<User, AuthenticationScore> data){
+        ViewUsers page = new ViewUsers(data);
+        page.setVisible(true);
     }
 }

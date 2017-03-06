@@ -5,10 +5,13 @@
  */
 package lk.bhanuka.biometric.view;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import lk.bhanuka.biometric.controller.AuthenticationController;
+import lk.bhanuka.biometric.models.AuthenticationScore;
 import lk.bhanuka.biometric.models.User;
 
 /**
@@ -17,20 +20,23 @@ import lk.bhanuka.biometric.models.User;
  */
 public class ViewUsers extends javax.swing.JFrame {
 
-    private List<User> users;
     /**
      * Creates new form ViewUsers
      */
-    public ViewUsers(List Users) {
+    public ViewUsers(List users) {
         initComponents();
-        this.users = Users; 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        this.initializeTable();
+        this.initializeTable(users);
     }
     
+    public ViewUsers(Map<User, AuthenticationScore> data){
+        this.initComponents();
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.initializeTable(data);
+    }
     
-
-    private void initializeTable(){
+    public void initializeTable(Map<User, AuthenticationScore> data){
+        
         Vector<String> tableHeaders = new Vector();
         Vector tableData = new Vector();
         
@@ -40,10 +46,46 @@ public class ViewUsers extends javax.swing.JFrame {
         tableHeaders.add("Middle Finger");
         tableHeaders.add("Ring Finger");
         tableHeaders.add("Pinky Finger");
+        tableHeaders.add("Thumb");
+        tableHeaders.add("Palm width");
+        tableHeaders.add("Palm height");
+        tableHeaders.add("Total Score");
+        
+        for(User user: data.keySet()){
+            Vector<Object> oneRow = new Vector<Object>();
+            AuthenticationScore score = data.get(user);
+            oneRow.add(user.getName());
+            oneRow.add(user.getIndexNumber());
+            oneRow.add(1-score.indexFinger);
+            oneRow.add(1-score.middleFinger);
+            oneRow.add(1-score.ringFinger);
+            oneRow.add(1-score.pinkyFinger);
+            oneRow.add(score.thumb);
+            oneRow.add(1-score.palmWidth);
+            oneRow.add(1-score.palmHeight);
+            oneRow.add(6 - score.getScore());
+            tableData.add(oneRow);
+        }
+        
+        this.usersTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        
+    }
+
+    private void initializeTable(List<User> users){
+        Vector<String> tableHeaders = new Vector();
+        Vector tableData = new Vector();
+        
+        tableHeaders.add("Name");
+        tableHeaders.add("Index");
+        tableHeaders.add("Index Finger");
+        tableHeaders.add("Middle Finger");
+        tableHeaders.add("Ring Finger");
+        tableHeaders.add("Pinky Finger");
+        tableHeaders.add("Thumb");
         tableHeaders.add("Palm width");
         tableHeaders.add("Palm height");
         
-        for(User user: this.users){
+        for(User user: users){
             Vector<Object> oneRow = new Vector<Object>();
             oneRow.add(user.getName());
             oneRow.add(user.getIndexNumber());
@@ -51,6 +93,7 @@ public class ViewUsers extends javax.swing.JFrame {
             oneRow.add(user.getMiddleFinger());
             oneRow.add(user.getRingFinger());
             oneRow.add(user.getPinkyFinger());
+            oneRow.add(user.getThumb());
             oneRow.add(user.getPalmWidth());
             oneRow.add(user.getPalmHeight());
             tableData.add(oneRow);

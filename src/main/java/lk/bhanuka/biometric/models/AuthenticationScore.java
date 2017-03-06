@@ -15,6 +15,7 @@ public class AuthenticationScore {
     public Float middleFinger;
     public  Float ringFinger;
     public Float pinkyFinger;
+    public Float thumb;
     public Float palmWidth;
     public Float palmHeight;
     
@@ -37,7 +38,7 @@ public class AuthenticationScore {
     
     public Float getScore(){
         //if(score != null){
-            return (indexFinger + middleFinger + ringFinger + pinkyFinger)/4.0f;
+            return (indexFinger + middleFinger + ringFinger + pinkyFinger + palmWidth + palmHeight + thumb);
         //}
         //return 1.0f;
     }
